@@ -34,6 +34,32 @@ composer install
 npm install
 ```
 
+## Démarrage et Accès
+1. Démarrez votre serveur web (Apache/Nginx)
+
+2. Démarrez MySQL :
+```bash
+sudo service mysql start  # Pour Linux
+# ou lancez MySQL depuis XAMPP/WAMP pour Windows
+```
+
+3. Importez la base de données :
+- Créez une nouvelle base de données
+- Importez le fichier SQL fourni dans le dossier `database`
+
+4. Accédez à l'application :
+- Ouvrez votre navigateur
+- Accédez à : `http://localhost/SECURITY_UNIVERSITY`
+- Connectez-vous avec les identifiants par défaut :
+  * Utilisateur : admin
+  * Mot de passe : admin123
+  * **Important** : Changez le mot de passe après la première connexion !
+
+5. En cas de problème :
+- Vérifiez que tous les services (Apache/Nginx, MySQL) sont en cours d'exécution
+- Vérifiez les logs dans le dossier `logs`
+- Assurez-vous que les permissions des fichiers sont correctes
+
 ## Configuration Requise
 - PHP 7.4 ou supérieur
 - MySQL 5.7 ou supérieur
