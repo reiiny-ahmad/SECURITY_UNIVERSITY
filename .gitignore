@@ -330,3 +330,41 @@ plugins/Microsoft_Social_Login*
 plugins/update.sh
 locale/fr_FR.utf8_ParisComSup
 functions/1GetMP.php
+
+# Configuration files
+config.inc.php
+
+# Cache and temporary files
+*.cache
+*.tmp
+*.temp
+
+# Log files
+*.log
+
+# Database files
+*.sql
+*.sqlite
+
+# IDE files
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Composer
+vendor/
+composer.lock
+
+# Node modules
+node_modules/
+package-lock.json
+
+# Uploaded files
+assets/StudentPhotos/*
+assets/UserPhotos/*
+assets/FileUploads/*

@@ -564,19 +564,23 @@ $RosarioActions = [];
  *
  * @return boolean  true
  */
-function add_action( $tag, $function_to_add, $accepted_args = 1, $priority = 10 )
-{
-	global $RosarioActions;
+if (!function_exists('add_action')) {
+    /**
+     * Add a function to a specified action hook
+     *
+     * @since 1.0
+     *
+     * @param string   $tag             The name of the action to which the $function_to_add is hooked
+     * @param callable $function_to_add The name of the function you wish to be called
+     * @param int      $priority        Optional. Used to specify the order in which the functions
+     *                                 associated with a particular action are executed. Default 10.
+     */
+    function add_action($tag, $function_to_add, $priority = 10) {
+        global $RosarioActions;
 
-	// Check if function exists.
-	if ( function_exists( (string) $function_to_add ) )
-	{
-		$RosarioActions[ $tag ][ $priority ][ $function_to_add ] = (int) $accepted_args;
-	}
-
-	return true;
+        $RosarioActions[$tag][$priority][] = $function_to_add;
+    }
 }
-
 
 /**
  * Removes a function from a specified action hook.
@@ -613,7 +617,6 @@ function remove_action( $tag, $function_to_remove ) {
 
 	return false;
 }
-
 
 /**
  * Execute functions hooked on a specific action hook.

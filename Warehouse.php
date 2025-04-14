@@ -19,24 +19,22 @@
 
 define( 'ROSARIO_VERSION', '12.2.2' );
 
-/**
- * Include config.inc.php file.
- *
- * Do NOT change for require_once, include_once allows the error message to be displayed.
- */
+// Initialize global variables
+global $RosarioActions;
+$RosarioActions = [];
 
+// Include config first
 if ( ! include_once 'config.inc.php' )
 {
 	die( 'config.inc.php file not found. Please read the installation directions.' );
 }
 
-if ( empty( $DatabaseType ) )
-{
-	// @since 10.0 Add $DatabaseType configuration variable
-	$DatabaseType = 'postgresql';
-}
-
+// Include database connection
 require_once 'database.inc.php';
+
+// Include core functions
+require_once 'functions/Actions.php';
+require_once 'functions/GeneralFunctions.php';
 
 /**
  * Optional configuration
