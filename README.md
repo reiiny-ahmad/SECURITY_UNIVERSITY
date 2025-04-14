@@ -3,6 +3,19 @@
 ## Description
 Ce projet est une application de gestion universitaire sécurisée, conçue pour faciliter l'administration et la gestion des données académiques tout en maintenant des standards élevés de sécurité.
 
+## Interface
+![Page de Connexion](docs/images/login.png)
+*Page de connexion sécurisée*
+
+![Tableau de Bord](docs/images/dashboard.png)
+*Tableau de bord administrateur*
+
+![Gestion des Étudiants](docs/images/students.png)
+*Interface de gestion des étudiants*
+
+![Emploi du Temps](docs/images/schedule.png)
+*Gestion des emplois du temps*
+
 ## Fonctionnalités
 - Gestion des étudiants
 - Gestion des cours et des programmes

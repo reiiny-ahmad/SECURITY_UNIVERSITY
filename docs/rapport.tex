@@ -1,0 +1,205 @@
+\documentclass[12pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[french]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{listings}
+\usepackage{xcolor}
+\usepackage{geometry}
+\usepackage{titlesec}
+\usepackage{fancyhdr}
+
+\geometry{margin=2.5cm}
+
+% Configuration des couleurs pour le code
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,                    
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+% Configuration des en-têtes et pieds de page
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{SECURITY UNIVERSITY}
+\fancyhead[R]{Rapport de Projet}
+\fancyfoot[C]{\thepage}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1cm}
+    {\huge\bfseries SECURITY UNIVERSITY\par}
+    \vspace{1cm}
+    {\Large Rapport de Projet\par}
+    \vspace{1.5cm}
+    {\large\itshape Équipe de Développement\par}
+    \vfill
+    {\large \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\chapter{Introduction}
+\section{Contexte du Projet}
+SECURITY UNIVERSITY est une application de gestion universitaire sécurisée, conçue pour faciliter l'administration et la gestion des données académiques tout en maintenant des standards élevés de sécurité.
+
+\section{Objectifs}
+\begin{itemize}
+    \item Développer une plateforme sécurisée de gestion universitaire
+    \item Assurer la protection des données sensibles
+    \item Fournir une interface utilisateur intuitive
+    \item Permettre une gestion efficace des ressources académiques
+\end{itemize}
+
+\chapter{Architecture du Système}
+\section{Technologies Utilisées}
+\begin{itemize}
+    \item Backend : PHP 7.4+
+    \item Base de données : MySQL 5.7+
+    \item Frontend : HTML5, CSS3, JavaScript
+    \item Versioning : Git
+\end{itemize}
+
+\section{Structure du Projet}
+\begin{lstlisting}[language=bash]
+SECURITY_UNIVERSITY/
+├── assets/
+│   ├── css/
+│   ├── js/
+│   └── images/
+├── config/
+├── database/
+├── functions/
+├── includes/
+├── modules/
+└── templates/
+\end{lstlisting}
+
+\chapter{Fonctionnalités}
+\section{Gestion des Utilisateurs}
+\begin{itemize}
+    \item Authentification sécurisée
+    \item Gestion des rôles et permissions
+    \item Profils utilisateurs
+\end{itemize}
+
+\section{Gestion Académique}
+\begin{itemize}
+    \item Gestion des étudiants
+    \item Gestion des cours
+    \item Système de notation
+    \item Emplois du temps
+\end{itemize}
+
+\chapter{Sécurité}
+\section{Mesures de Sécurité}
+\begin{itemize}
+    \item Authentification à deux facteurs
+    \item Chiffrement des données sensibles
+    \item Protection contre les injections SQL
+    \item Gestion sécurisée des sessions
+\end{itemize}
+
+\section{Protection des Données}
+\begin{itemize}
+    \item Chiffrement des mots de passe
+    \item Protection des données personnelles
+    \item Journalisation des accès
+\end{itemize}
+
+\chapter{Installation et Configuration}
+\section{Prérequis}
+\begin{itemize}
+    \item PHP 7.4 ou supérieur
+    \item MySQL 5.7 ou supérieur
+    \item Serveur Web (Apache/Nginx)
+\end{itemize}
+
+\section{Procédure d'Installation}
+\begin{enumerate}
+    \item Installation des dépendances
+    \item Configuration de la base de données
+    \item Configuration du serveur web
+    \item Mise en place des permissions
+\end{enumerate}
+
+\chapter{Interface Utilisateur}
+\section{Design et Ergonomie}
+\begin{itemize}
+    \item Interface responsive
+    \item Navigation intuitive
+    \item Accessibilité
+\end{itemize}
+
+\section{Composants Principaux}
+\begin{itemize}
+    \item Tableau de bord
+    \item Formulaires de gestion
+    \item Rapports et statistiques
+\end{itemize}
+
+\chapter{Conclusion}
+\section{Bilan du Projet}
+Le projet SECURITY UNIVERSITY répond aux besoins de gestion universitaire tout en assurant un haut niveau de sécurité des données.
+
+\section{Perspectives}
+\begin{itemize}
+    \item Intégration de nouvelles fonctionnalités
+    \item Amélioration continue de la sécurité
+    \item Optimisation des performances
+\end{itemize}
+
+\appendix
+\chapter{Annexes}
+\section{Documentation Technique}
+\subsection{Configuration du Serveur}
+\begin{lstlisting}[language=apache]
+# Configuration Apache
+<VirtualHost *:80>
+    ServerName security.university
+    DocumentRoot /var/www/html/SECURITY_UNIVERSITY
+    <Directory /var/www/html/SECURITY_UNIVERSITY>
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    </Directory>
+</VirtualHost>
+\end{lstlisting}
+
+\subsection{Configuration de la Base de Données}
+\begin{lstlisting}[language=sql]
+-- Structure de la base de données
+CREATE TABLE users (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    username VARCHAR(50) UNIQUE,
+    password VARCHAR(255),
+    role VARCHAR(20),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+\end{lstlisting}
+
+\end{document} 
